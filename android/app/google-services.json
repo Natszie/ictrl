@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "9999285705",
+    "project_id": "ictrl-49d7e",
+    "storage_bucket": "ictrl-49d7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9999285705:android:6aaee8c25bbb3cd6883c18",
+        "android_client_info": {
+          "package_name": "com.ictrl.ictrl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChOsPdhQusVNM7FLxYhdrRlK3BsI1FHdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

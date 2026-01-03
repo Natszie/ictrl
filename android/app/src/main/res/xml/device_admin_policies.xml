@@ -1,0 +1,27 @@
+<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-policies>
+        <!-- Allow locking the device -->
+        <force-lock />
+
+        <!-- Allow wiping device data (use with extreme caution) -->
+        <!-- <wipe-data /> -->
+
+        <!-- Allow resetting password (not typically needed for games) -->
+        <!-- <reset-password /> -->
+
+        <!-- Allow setting password requirements -->
+        <!-- <limit-password /> -->
+
+        <!-- Allow monitoring failed password attempts -->
+        <!-- <watch-login /> -->
+
+        <!-- Allow setting storage encryption -->
+        <!-- <encrypted-storage /> -->
+
+        <!-- Allow disabling cameras -->
+        <!-- <disable-camera /> -->
+
+        <!-- Allow disabling keyguard features -->
+        <!-- <disable-keyguard-features /> -->
+    </uses-policies>
+</device-admin>
