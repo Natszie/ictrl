@@ -1,100 +1,113 @@
-iCtrl - Family Gaming Control System
+# iCtrl - Family Gaming Control System
+
 A comprehensive Flutter-based parental control application that helps parents manage and monitor their children's gaming activities on Android devices.
 
-📋 Table of Contents
-Overview
-Features
-Architecture
-Installation
-Configuration
-Usage
-Technical Details
-Contributing
-License
-🎯 Overview
-iCtrl is a dual-dashboard application designed to help families establish healthy gaming habits. It provides parents with tools to set gaming schedules, assign tasks, and monitor gameplay while giving children a transparent view of their gaming time and rewards.
+## 📋 Table of Contents
 
-Key Components
-Parent Dashboard: Comprehensive control panel for managing gaming schedules, tasks, and rewards
-Player Dashboard: Child-friendly interface showing available games, schedules, and tasks
-Background Monitoring: Real-time game session tracking and enforcement
-QR Code Pairing: Secure device pairing mechanism
-✨ Features
-For Parents
-📅 Gaming Schedule Management
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Technical Details](#technical-details)
+- [Contributing](#contributing)
+- [License](#license)
 
-Create, edit, and delete gaming schedules
-Set specific time windows for gameplay
-Recurring schedule support
-Maximum 3 active schedules per connection
-Automatic schedule status updates (scheduled → active → completed)
-📋 Task Assignment System
+## 🎯 Overview
 
-Assign chores/tasks to children
-Set point-based rewards
-Verify task completion
-Track reward status (pending → verify → granted)
-🎮 Game Permission Control
+iCtrl is a dual-dashboard application designed to help families establish healthy gaming habits.  It provides parents with tools to set gaming schedules, assign tasks, and monitor gameplay while giving children a transparent view of their gaming time and rewards.
 
-View all installed games on child devices
-Allow/block specific games
-Real-time permission updates
-Cloud-synced game library
-📊 Activity Monitoring
+### Key Components
 
-Live gaming session tracking
-Weekly play time reports
-Game-by-game analytics
-Session history with timestamps
-🔗 Device Management
+- **Parent Dashboard**: Comprehensive control panel for managing gaming schedules, tasks, and rewards
+- **Player Dashboard**: Child-friendly interface showing available games, schedules, and tasks
+- **Background Monitoring**: Real-time game session tracking and enforcement
+- **QR Code Pairing**: Secure device pairing mechanism
 
-QR code-based device pairing
-Multiple child device support
-Connection status monitoring
-Firebase Cloud Messaging integration
-For Players (Children)
-🎯 Gaming Dashboard
+## ✨ Features
 
-View available games and schedules
-See active gaming sessions with real-time timers
-Check upcoming schedule reminders
-Weekly gaming report
-✅ Task Management
+### For Parents
 
-View assigned tasks
-Complete tasks to earn points
-3-minute delay before task completion (anti-cheat)
-Track reward verification status
-🏆 Reward System
+- **📅 Gaming Schedule Management**
+  - Create, edit, and delete gaming schedules
+  - Set specific time windows for gameplay
+  - Recurring schedule support
+  - Maximum 3 active schedules per connection
+  - Automatic schedule status updates (scheduled → active → completed)
 
-Accumulate points from completed tasks
-Redeem rewards for:
-15 minutes gameplay unlock (200 pts)
-30 minutes gameplay unlock (500 pts)
-1 hour gameplay unlock (1000 pts)
-24 hours gameplay unlock (2000 pts)
-Time-limited unlock keys
-Voucher inventory system
-📱 Real-time Notifications
+- **📋 Task Assignment System**
+  - Assign chores/tasks to children
+  - Set point-based rewards
+  - Verify task completion
+  - Track reward status (pending → verify → granted)
 
-Game start/end notifications
-Schedule reminders (15 min, 5 min before)
-Time warning notifications
-Active session indicators
-🏗️ Architecture
-Tech Stack
-Framework: Flutter 3.x
-Language: Dart
-Backend: Firebase
-Firestore (Real-time Database)
-Cloud Storage (Game icons)
-Cloud Messaging (Push notifications)
-Authentication
-State Management: setState (StatefulWidget)
-Local Storage: SharedPreferences
-Background Processing: WorkManager
-Firebase Structure
-Code
+- **🎮 Game Permission Control**
+  - View all installed games on child devices
+  - Allow/block specific games
+  - Real-time permission updates
+  - Cloud-synced game library
+
+- **📊 Activity Monitoring**
+  - Live gaming session tracking
+  - Weekly play time reports
+  - Game-by-game analytics
+  - Session history with timestamps
+
+- **🔗 Device Management**
+  - QR code-based device pairing
+  - Multiple child device support
+  - Connection status monitoring
+  - Firebase Cloud Messaging integration
+
+### For Players (Children)
+
+- **🎯 Gaming Dashboard**
+  - View available games and schedules
+  - See active gaming sessions with real-time timers
+  - Check upcoming schedule reminders
+  - Weekly gaming report
+
+- **✅ Task Management**
+  - View assigned tasks
+  - Complete tasks to earn points
+  - 3-minute delay before task completion (anti-cheat)
+  - Track reward verification status
+
+- **🏆 Reward System**
+  - Accumulate points from completed tasks
+  - Redeem rewards for: 
+    - 15 minutes gameplay unlock (200 pts)
+    - 30 minutes gameplay unlock (500 pts)
+    - 1 hour gameplay unlock (1000 pts)
+    - 24 hours gameplay unlock (2000 pts)
+  - Time-limited unlock keys
+  - Voucher inventory system
+
+- **📱 Real-time Notifications**
+  - Game start/end notifications
+  - Schedule reminders (15 min, 5 min before)
+  - Time warning notifications
+  - Active session indicators
+
+## 🏗️ Architecture
+
+### Tech Stack
+
+- **Framework**: Flutter 3.x
+- **Language**: Dart
+- **Backend**: Firebase
+  - Firestore (Real-time Database)
+  - Cloud Storage (Game icons)
+  - Cloud Messaging (Push notifications)
+  - Authentication
+- **State Management**: setState (StatefulWidget)
+- **Local Storage**: SharedPreferences
+- **Background Processing**: WorkManager
+
+### Firebase Structure
+
+```
 firestore/
 ├── parent_account/
 │   └── {parentDeviceId}
@@ -198,57 +211,72 @@ firestore/
                 ├── minutes
                 ├── isUsed
                 └── createdAt
-Key Classes
-Parent Dashboard (parentdashboard.dart)
-ParentDashboard: Main parent interface with 5 tabs
-_AddScheduleDialog: Schedule creation/editing form
-_AddTaskDialog: Task assignment form
-Connection management and real-time listeners
-Player Dashboard (playerdashboard.dart)
-PlayerDashboard: Main child interface with 5 tabs
-GameSession: Active session tracking
-GameSchedule: Schedule data model
-TaskReward: Task/reward data model
-RedeemableReward: Point-based rewards
-Background Services
-EnhancedBackgroundGameMonitor: WorkManager-based game monitoring
-GameplayNotificationService: Local notification management
-GameIconService: Icon caching and Firebase Storage integration
-🚀 Installation
-Prerequisites
-Flutter SDK 3.0 or higher
-Android Studio / VS Code
-Firebase account
-Android device for testing (required for game detection)
-Setup Steps
-Clone the repository
-bash
+```
+
+### Key Classes
+
+#### Parent Dashboard (`parentdashboard.dart`)
+- `ParentDashboard`: Main parent interface with 5 tabs
+- `_AddScheduleDialog`: Schedule creation/editing form
+- `_AddTaskDialog`: Task assignment form
+- Connection management and real-time listeners
+
+#### Player Dashboard (`playerdashboard.dart`)
+- `PlayerDashboard`: Main child interface with 5 tabs
+- `GameSession`: Active session tracking
+- `GameSchedule`: Schedule data model
+- `TaskReward`: Task/reward data model
+- `RedeemableReward`: Point-based rewards
+
+#### Background Services
+- `EnhancedBackgroundGameMonitor`: WorkManager-based game monitoring
+- `GameplayNotificationService`: Local notification management
+- `GameIconService`: Icon caching and Firebase Storage integration
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Flutter SDK 3.0 or higher
+- Android Studio / VS Code
+- Firebase account
+- Android device for testing (required for game detection)
+
+### Setup Steps
+
+1. **Clone the repository**
+```bash
 git clone https://github.com/yourusername/ictrl.git
 cd ictrl
-Install dependencies
-bash
+```
+
+2. **Install dependencies**
+```bash
 flutter pub get
-Firebase Configuration
+```
 
-a. Create a new Firebase project at Firebase Console
+3. **Firebase Configuration**
 
-b. Add Android app to your Firebase project
+   a. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com)
+   
+   b. Add Android app to your Firebase project
+   
+   c. Download `google-services.json` and place it in `android/app/`
+   
+   d. Update `android/build.gradle`:
+   ```gradle
+   dependencies {
+       classpath 'com.google. gms:google-services:4.3.15'
+   }
+   ```
+   
+   e. Update `android/app/build.gradle`:
+   ```gradle
+   apply plugin: 'com.google.gms.google-services'
+   ```
 
-c. Download google-services.json and place it in android/app/
-
-d. Update android/build.gradle:
-
-Gradle
-dependencies {
-    classpath 'com.google. gms:google-services:4.3.15'
-}
-e. Update android/app/build.gradle:
-
-Gradle
-apply plugin: 'com.google.gms.google-services'
-Update Firebase config in main.dart (for web):
-
-Dart
+4. **Update Firebase config in `main.dart`** (for web):
+```dart
 await Firebase.initializeApp(options: FirebaseOptions(
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
@@ -257,21 +285,28 @@ await Firebase.initializeApp(options: FirebaseOptions(
     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
     appId: "YOUR_APP_ID"
 ));
-Configure Android permissions in android/app/src/main/AndroidManifest.xml:
-XML
+```
+
+5. **Configure Android permissions** in `android/app/src/main/AndroidManifest.xml`:
+```xml
 <uses-permission android:name="android.permission. INTERNET" />
 <uses-permission android:name="android.permission. QUERY_ALL_PACKAGES" />
 <uses-permission android:name="android.permission. PACKAGE_USAGE_STATS" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-Run the app
-bash
-flutter run
-⚙️ Configuration
-Firebase Rules
-Firestore Security Rules (example):
+```
 
-JavaScript
+6. **Run the app**
+```bash
+flutter run
+```
+
+## ⚙️ Configuration
+
+### Firebase Rules
+
+**Firestore Security Rules** (example):
+```javascript
 rules_version = '2';
 service cloud. firestore {
   match /databases/{database}/documents {
@@ -295,9 +330,10 @@ service cloud. firestore {
     }
   }
 }
-Storage Rules:
+```
 
-JavaScript
+**Storage Rules**:
+```javascript
 rules_version = '2';
 service firebase. storage {
   match /b/{bucket}/o {
@@ -307,153 +343,169 @@ service firebase. storage {
     }
   }
 }
-WorkManager Configuration
+```
+
+### WorkManager Configuration
+
 Background monitoring uses WorkManager with the following setup:
 
-Dart
+```dart
 await Workmanager().initialize(
   enhancedCallbackDispatcher,
   isInDebugMode: true, // Set to false in production
 );
-📖 Usage
-Parent Workflow
-Initial Setup
+```
 
-Install app on parent device
-Launch app (automatically detects as parent device)
-Navigate to Dashboard
-Pair Child Device
+## 📖 Usage
 
-On parent: Generate QR code (via "Pair Device" button)
-On child: Scan QR code
-Confirm pairing
-Create Gaming Schedule
+### Parent Workflow
 
-Go to "Schedule" tab
-Tap "Add Gaming Schedule"
-Select child device
-Choose game from installed games list
-Set date, start time, end time
-Optional: Add tasks for the schedule
-Save schedule
-Manage Games
+1. **Initial Setup**
+   - Install app on parent device
+   - Launch app (automatically detects as parent device)
+   - Navigate to Dashboard
 
-Go to "Manage" tab
-View all installed games on child device
-Toggle game permissions (Allow/Block)
-Changes sync immediately
-Assign Tasks
+2. **Pair Child Device**
+   - On parent:  Generate QR code (via "Pair Device" button)
+   - On child: Scan QR code
+   - Confirm pairing
 
-Go to "Tasks" tab
-Tap "Add Task"
-Select child device
-Choose task from predefined list or create custom
-Assign point value
-Save task
-Monitor Activity
+3. **Create Gaming Schedule**
+   - Go to "Schedule" tab
+   - Tap "Add Gaming Schedule"
+   - Select child device
+   - Choose game from installed games list
+   - Set date, start time, end time
+   - Optional: Add tasks for the schedule
+   - Save schedule
 
-Dashboard shows:
-Connected devices
-Active gaming sessions (LIVE indicator)
-Today's overview
-Recent activity
-Weekly gaming report
-Player Workflow
-Initial Setup
+4. **Manage Games**
+   - Go to "Manage" tab
+   - View all installed games on child device
+   - Toggle game permissions (Allow/Block)
+   - Changes sync immediately
 
-Install app on child device
-Launch app
-Create account (username, email, password)
-Wait for parent to initiate pairing
-View Schedules
+5. **Assign Tasks**
+   - Go to "Tasks" tab
+   - Tap "Add Task"
+   - Select child device
+   - Choose task from predefined list or create custom
+   - Assign point value
+   - Save task
 
-Go to "Schedule" tab
-See all gaming schedules
-Green border = Available now
-Orange badge = Upcoming
-Tap schedule to launch game (if available)
-Play Games
+6. **Monitor Activity**
+   - Dashboard shows:
+     - Connected devices
+     - Active gaming sessions (LIVE indicator)
+     - Today's overview
+     - Recent activity
+     - Weekly gaming report
 
-Available games shown in "Games" tab
-Green "Allowed" badge = Can play
-Red "Blocked" badge = Cannot play
-Tap allowed game to launch
-Real-time session tracking with live timer
-Complete Tasks
+### Player Workflow
 
-Go to "Tasks" tab
-View assigned tasks
-Wait 3 minutes after task assignment
-Tap "Complete" to mark as done
-Status changes to "Waiting for parent's approval"
-Earn points after parent verification
-Redeem Rewards
+1. **Initial Setup**
+   - Install app on child device
+   - Launch app
+   - Create account (username, email, password)
+   - Wait for parent to initiate pairing
 
-Accumulated points shown in header
-Scroll to "Redeem Rewards" section
-Choose reward tier
-Select game to unlock
-Unlocked game shows expiry time
-🔧 Technical Details
-Schedule Enforcement System
+2. **View Schedules**
+   - Go to "Schedule" tab
+   - See all gaming schedules
+   - Green border = Available now
+   - Orange badge = Upcoming
+   - Tap schedule to launch game (if available)
+
+3. **Play Games**
+   - Available games shown in "Games" tab
+   - Green "Allowed" badge = Can play
+   - Red "Blocked" badge = Cannot play
+   - Tap allowed game to launch
+   - Real-time session tracking with live timer
+
+4. **Complete Tasks**
+   - Go to "Tasks" tab
+   - View assigned tasks
+   - Wait 3 minutes after task assignment
+   - Tap "Complete" to mark as done
+   - Status changes to "Waiting for parent's approval"
+   - Earn points after parent verification
+
+5. **Redeem Rewards**
+   - Accumulated points shown in header
+   - Scroll to "Redeem Rewards" section
+   - Choose reward tier
+   - Select game to unlock
+   - Unlocked game shows expiry time
+
+## 🔧 Technical Details
+
+### Schedule Enforcement System
+
 The app uses a multi-layer schedule enforcement mechanism:
 
-Real-time Firestore Listeners
+1. **Real-time Firestore Listeners**
+   - Monitors `gaming_scheduled/{connectionId}` document
+   - Updates schedule status automatically
+   - Triggers UI updates via `StreamBuilder`
 
-Monitors gaming_scheduled/{connectionId} document
-Updates schedule status automatically
-Triggers UI updates via StreamBuilder
-Status Transitions
+2. **Status Transitions**
+   ```
+   scheduled → active → completed
+            ↓
+          paused (manual)
+   ```
 
-Code
-scheduled → active → completed
-         ↓
-       paused (manual)
-Auto-Update Timer
+3. **Auto-Update Timer**
+   - Runs every 30 seconds
+   - Checks current time against schedule windows
+   - Updates status in Firestore
+   - Calls `_updateAllowedGamesFromSchedules()`
 
-Runs every 30 seconds
-Checks current time against schedule windows
-Updates status in Firestore
-Calls _updateAllowedGamesFromSchedules()
-Allowed Games Sync
+4. **Allowed Games Sync**
+   - Schedule status directly affects `allowed_games` collection
+   - Active schedule → game allowed
+   - Paused/Completed schedule → game blocked
+   - Unlock keys override schedule restrictions
 
-Schedule status directly affects allowed_games collection
-Active schedule → game allowed
-Paused/Completed schedule → game blocked
-Unlock keys override schedule restrictions
-Game Session Tracking
-Session Lifecycle:
+### Game Session Tracking
 
-Launch Detection
+**Session Lifecycle**: 
 
-Dart
-await _trackGameLaunch(packageName, gameName);
-Creates new session document
-Sets isActive: true
-Starts heartbeat timer (1-second interval)
-Active Monitoring
+1. **Launch Detection**
+   ```dart
+   await _trackGameLaunch(packageName, gameName);
+   ```
+   - Creates new session document
+   - Sets `isActive: true`
+   - Starts heartbeat timer (1-second interval)
 
-Dart
-void _startSessionUpdates(String sessionId, String gameName) {
-  _realTimeUpdateTimer = Timer.periodic(Duration(seconds: 1), (timer) {
-    _updateGameSession(sessionId, gameName);
-  });
-}
-Updates totalPlayTimeSeconds every second
-Updates heartbeat timestamp
-Triggers UI rebuild for live timer
-Session End
+2. **Active Monitoring**
+   ```dart
+   void _startSessionUpdates(String sessionId, String gameName) {
+     _realTimeUpdateTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+       _updateGameSession(sessionId, gameName);
+     });
+   }
+   ```
+   - Updates `totalPlayTimeSeconds` every second
+   - Updates `heartbeat` timestamp
+   - Triggers UI rebuild for live timer
 
-Dart
-await _endActiveGameSession();
-Sets isActive: false
-Records endedAt timestamp
-Calculates final totalPlayTimeSeconds
-Shows end notification
-Background Monitoring
+3. **Session End**
+   ```dart
+   await _endActiveGameSession();
+   ```
+   - Sets `isActive: false`
+   - Records `endedAt` timestamp
+   - Calculates final `totalPlayTimeSeconds`
+   - Shows end notification
+
+### Background Monitoring
+
 The app uses WorkManager for persistent background monitoring:
 
-Dart
+```dart
 @pragma('vm:entry-point')
 void enhancedCallbackDispatcher() {
   Workmanager().executeTask((task, inputData) async {
@@ -462,43 +514,49 @@ void enhancedCallbackDispatcher() {
     return Future.value(true);
   });
 }
-Features:
+```
 
-Periodic task execution (configurable interval)
-Firebase integration in background
-Game permission enforcement
-Survives app termination
-Icon Caching Strategy
+**Features**:
+- Periodic task execution (configurable interval)
+- Firebase integration in background
+- Game permission enforcement
+- Survives app termination
+
+### Icon Caching Strategy
+
 Multi-tier caching for optimal performance:
 
-Local Cache (Fastest)
+1. **Local Cache** (Fastest)
+   ```dart
+   Future<Uint8List? > getCachedIcon(String packageName)
+   ```
+   - Stores icons in app documents directory
+   - MD5 hash-based filename
 
-Dart
-Future<Uint8List? > getCachedIcon(String packageName)
-Stores icons in app documents directory
-MD5 hash-based filename
-Direct App Query
+2. **Direct App Query**
+   ```dart
+   Future<Uint8List?> fetchAppIcon(String packageName)
+   ```
+   - Uses `installed_apps` plugin
+   - Caches result locally
 
-Dart
-Future<Uint8List?> fetchAppIcon(String packageName)
-Uses installed_apps plugin
-Caches result locally
-Firebase Storage (Fallback)
+3. **Firebase Storage** (Fallback)
+   ```dart
+   Future<String?> getIconFromStorage(String packageName)
+   ```
+   - Cloud-based icon storage
+   - Used when local methods fail
 
-Dart
-Future<String?> getIconFromStorage(String packageName)
-Cloud-based icon storage
-Used when local methods fail
-Icon Font Fallback
+4. **Icon Font Fallback**
+   - Material Icons-based fallback
+   - Keyword matching for appropriate icon
 
-Material Icons-based fallback
-Keyword matching for appropriate icon
-Real-time Updates
+### Real-time Updates
+
 The app uses Firestore snapshots for real-time synchronization:
 
-Parent Side:
-
-Dart
+**Parent Side**:
+```dart
 _scheduleStreamSubscription = FirebaseFirestore.instance
     .collection('gaming_scheduled')
     . doc(_connectionId!)
@@ -506,9 +564,10 @@ _scheduleStreamSubscription = FirebaseFirestore.instance
     .listen((snapshot) {
       _processScheduleSnapshot(snapshot);
     });
-Player Side:
+```
 
-Dart
+**Player Side**:
+```dart
 _gameSessionsListener = FirebaseFirestore.instance
     .collection('game_sessions')
     . doc(_connectionId!)
@@ -518,77 +577,94 @@ _gameSessionsListener = FirebaseFirestore.instance
     .listen((query) {
       // Update active sessions UI
     });
-Notification System
+```
+
+### Notification System
+
 Comprehensive notification categories:
 
-Gameplay Notifications
+1. **Gameplay Notifications**
+   - Game start (ongoing)
+   - Live timer updates
+   - Game end summary
 
-Game start (ongoing)
-Live timer updates
-Game end summary
-Schedule Reminders
+2. **Schedule Reminders**
+   - 15 minutes before
+   - 5 minutes before
+   - Active schedule alert
 
-15 minutes before
-5 minutes before
-Active schedule alert
-Time Warnings
+3. **Time Warnings**
+   - 10 minutes remaining
+   - 5 minutes remaining
+   - 1 minute remaining
 
-10 minutes remaining
-5 minutes remaining
-1 minute remaining
-Critical Alerts
+4. **Critical Alerts**
+   - Schedule time up
+   - Game blocked notification
 
-Schedule time up
-Game blocked notification
-🤝 Contributing
+## 🤝 Contributing
+
 Contributions are welcome! Please follow these guidelines:
 
-Fork the repository
-Create a feature branch (git checkout -b feature/AmazingFeature)
-Commit changes (git commit -m 'Add AmazingFeature')
-Push to branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-Code Style
-Follow Effective Dart guidelines
-Use meaningful variable/function names
-Comment complex logic
-Maintain consistent formatting
-📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-🐛 Known Issues
-Background Monitoring Limitations
+### Code Style
 
-Requires battery optimization to be disabled
-May not work on all Android versions (tested on Android 10+)
-Game Detection
+- Follow [Effective Dart](https://dart.dev/guides/language/effective-dart) guidelines
+- Use meaningful variable/function names
+- Comment complex logic
+- Maintain consistent formatting
 
-Relies on QUERY_ALL_PACKAGES permission (Android 11+)
-Some games may not be detected if permission denied
-Icon Loading
+## 📄 License
 
-First-time icon fetch may be slow
-Network dependency for Firebase Storage icons
-🔮 Future Enhancements
- iOS support
- Web dashboard for parents
- Multiple parent accounts
- Screen time analytics charts
- Export reports (PDF/CSV)
- Geofencing restrictions
- Content filtering
- App usage limits (beyond games)
- Family calendar integration
- Achievement system
-📞 Support
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🐛 Known Issues
+
+1. **Background Monitoring Limitations**
+   - Requires battery optimization to be disabled
+   - May not work on all Android versions (tested on Android 10+)
+
+2. **Game Detection**
+   - Relies on `QUERY_ALL_PACKAGES` permission (Android 11+)
+   - Some games may not be detected if permission denied
+
+3. **Icon Loading**
+   - First-time icon fetch may be slow
+   - Network dependency for Firebase Storage icons
+
+## 🔮 Future Enhancements
+
+- [ ] iOS support
+- [ ] Web dashboard for parents
+- [ ] Multiple parent accounts
+- [ ] Screen time analytics charts
+- [ ] Export reports (PDF/CSV)
+- [ ] Geofencing restrictions
+- [ ] Content filtering
+- [ ] App usage limits (beyond games)
+- [ ] Family calendar integration
+- [ ] Achievement system
+
+## 📞 Support
+
 For issues and questions:
+- Open an issue on GitHub
+- Email:  support@ictrlapp.com (if applicable)
+- Documentation: [Wiki](https://github.com/yourusername/ictrl/wiki)
 
-Open an issue on GitHub
-Email: support@ictrlapp.com (if applicable)
-Documentation: Wiki
-🙏 Acknowledgments
-Flutter team for the amazing framework
-Firebase for backend infrastructure
-installed_apps plugin contributors
-workmanager plugin contributors
-Material Design for UI components
+## 🙏 Acknowledgments
+
+- Flutter team for the amazing framework
+- Firebase for backend infrastructure
+- `installed_apps` plugin contributors
+- `workmanager` plugin contributors
+- Material Design for UI components
+
+---
+
+**Made with ❤️ for families seeking healthy digital balance**
