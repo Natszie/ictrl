@@ -55,12 +55,12 @@ void main() async {
 
   if (kIsWeb) {
     await Firebase.initializeApp(options: FirebaseOptions(
-        apiKey: "AIzaSyD8BkjNu1LhRo5GDQCdQhu8NmRxPKR5CBE",
-        authDomain: "ictrl-202be.firebaseapp.com",
-        projectId: "ictrl-202be",
-        storageBucket: "ictrl-202be.firebasestorage.app",
-        messagingSenderId: "597216607130",
-        appId: "1:597216607130:web:a382c771fe3385c3391823"));
+        apiKey: "YOURKEY",
+        authDomain: "YOURDOMAIN",
+        projectId: "YOURPROJECT",
+        storageBucket: "",
+        messagingSenderId: "",
+        appId: ""));
   } else {
     await Firebase.initializeApp();
   }
@@ -1063,4 +1063,5 @@ class _AppLifecycleWrapperState extends State<AppLifecycleWrapper>
   Widget build(BuildContext context) {
     return widget.child;
   }
+
 }
